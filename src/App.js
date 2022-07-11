@@ -5,12 +5,12 @@ import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
-    <div className="App">
-      <Split>
+    <main>
+      <Split sizes={[30, 70]} direction="horizontal" className="split">
         <Sidebar />
         <Editor />
       </Split>
-    </div>
+    </main>
   );
 }
 
