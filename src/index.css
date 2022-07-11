@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -14,6 +15,7 @@ svg {
   width: 30px;
   display: flex;
 }
+
 .ql-editor p,
 .ql-editor.ql-blank::before {
   font-size: 1.3em;
@@ -25,20 +27,24 @@ svg {
   background-color: #ffffff;
   height: 100vh;
 }
+
 button {
   background-color: purple;
   color: #ffffff;
 }
+
 .pane {
   overflow-y: auto;
   /* padding: 10px; */
 }
+
 .sidebar--header {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.sidebar--header > h3 {
+
+.sidebar--header>h3 {
   font-size: 1.75rem;
 }
 
@@ -47,6 +53,7 @@ button {
   height: 100vh;
   background-color: #ffffff;
 }
+
 .split {
   display: flex;
 }
@@ -57,6 +64,7 @@ button {
   background-repeat: no-repeat;
   background-position: 50%;
 }
+
 .gutter.gutter-horizontal {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==");
 }
@@ -67,4 +75,24 @@ button {
 
 .mde-header-group {
   display: flex;
+}
+
+.text-snippet {
+  padding-inline: 5px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.2rem;
+  color: #4A4E74;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.selected-note {
+  background-color: #4A4E74;
+}
+
+.selected-note .text-snippet {
+  color: white;
+  font-weight: 700;
 }
