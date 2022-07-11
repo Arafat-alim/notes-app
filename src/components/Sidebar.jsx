@@ -2,8 +2,12 @@ import React from "react";
 
 export default function Sidebar() {
   return (
-    <div>
-      <h1>SideBar</h1>
-    </div>
+    <section className="pane sidebar">
+      <div className="sidebar--header">
+        <h3>Notes</h3>
+        <button className="new-note">+</button>
+      </div>
+      {/* element */}
+    </section>
   );
 }
