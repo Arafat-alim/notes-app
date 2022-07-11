@@ -1,18 +1,16 @@
-import React, { useState } from "react";
-import Split from "react-split";
-import Editor from "./components/Editor";
+import React from "react";
 import Sidebar from "./components/Sidebar";
+import Editor from "./components/Editor";
 import { data } from "./data";
+import Split from "react-split";
 import { nanoid } from "nanoid";
 
-function App() {
-  //! creating a note state
-  const [notes, setNotes] = useState([]);
+export default function App() {
+  const [notes, setNotes] = React.useState([]);
   const [currentNoteId, setCurrentNoteId] = React.useState(
     (notes[0] && notes[0].id) || ""
   );
 
-  // ! function to create a new Note
   function createNewNote() {
     const newNote = {
       id: nanoid(),
@@ -22,7 +20,6 @@ function App() {
     setCurrentNoteId(newNote.id);
   }
 
-  // ! function to update a Note
   function updateNote(text) {
     setNotes((oldNotes) =>
       oldNotes.map((oldNote) => {
@@ -33,8 +30,13 @@ function App() {
     );
   }
 
-  // ! function to findCurrent Note
-  function findCurrentNote() {}
+  function findCurrentNote() {
+    return (
+      notes.find((note) => {
+        return note.id === currentNoteId;
+      }) || notes[0]
+    );
+  }
 
   return (
     <main>
@@ -42,22 +44,22 @@ function App() {
         <Split sizes={[30, 70]} direction="horizontal" className="split">
           <Sidebar
             notes={notes}
-            currentNote={findCurrentNote}
+            currentNote={findCurrentNote()}
             setCurrentNoteId={setCurrentNoteId}
             newNote={createNewNote}
           />
-          <Editor currentNote={findCurrentNote} updateNote={updateNote} />
+          {currentNoteId && notes.length > 0 && (
+            <Editor currentNote={findCurrentNote()} updateNote={updateNote} />
+          )}
         </Split>
       ) : (
         <div className="no-notes">
-          <h1>You have no Notes</h1>
+          <h1>You have no notes</h1>
           <button className="first-note" onClick={createNewNote}>
-            Create one Now
+            Create one now
           </button>
         </div>
       )}
     </main>
   );
 }
-
-export default App;

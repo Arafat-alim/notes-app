@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Sidebar(props) {
-  const noteElements = props.notes.map((note, index) => {
+  const noteElements = props.notes.map((note, index) => (
     <div key={note.id}>
       <div
         className={`title ${
@@ -11,9 +11,9 @@ export default function Sidebar(props) {
       >
         <h4 className="text-snippet">Note {index + 1}</h4>
       </div>
-    </div>;
-  });
-  console.log(noteElements);
+    </div>
+  ));
+
   return (
     <section className="pane sidebar">
       <div className="sidebar--header">
