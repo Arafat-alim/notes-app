@@ -28,15 +28,24 @@ function App() {
 
   return (
     <main>
-      <Split sizes={[30, 70]} direction="horizontal" className="split">
-        <Sidebar
-          notes={notes}
-          currentNote={findCurrentNote}
-          setCurrentNoteId={setCurrentNoteId}
-          newNote={createNewNote}
-        />
-        <Editor currentNote={findCurrentNote} updateNote={updateNote} />
-      </Split>
+      {notes.length > 0 ? (
+        <Split sizes={[30, 70]} direction="horizontal" className="split">
+          <Sidebar
+            notes={notes}
+            currentNote={findCurrentNote}
+            setCurrentNoteId={setCurrentNoteId}
+            newNote={createNewNote}
+          />
+          <Editor currentNote={findCurrentNote} updateNote={updateNote} />
+        </Split>
+      ) : (
+        <div className="no-notes">
+          <h1>You have no Notes</h1>
+          <button className="first-note" onClick={createNewNote}>
+            Create one Now
+          </button>
+        </div>
+      )}
     </main>
   );
 }
