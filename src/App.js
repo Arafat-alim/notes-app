@@ -21,8 +21,18 @@ function App() {
     setNotes((prevNotes) => [newNote, ...prevNotes]);
     setCurrentNoteId(newNote.id);
   }
+
   // ! function to update a Note
-  function updateNote() {}
+  function updateNote(text) {
+    setNotes((oldNotes) =>
+      oldNotes.map((oldNote) => {
+        return oldNote.id === currentNoteId
+          ? { ...oldNote, body: text }
+          : oldNote;
+      })
+    );
+  }
+
   // ! function to findCurrent Note
   function findCurrentNote() {}
 
